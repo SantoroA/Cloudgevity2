@@ -71,13 +71,16 @@ function handlePosition(position) {
 }
 
 function formatWeatherInfo(response) {
+  document
+    .querySelector("#weather-icon")
+    .setAttribute("src", `images/${response.data.weather[0].main}.svg`);
   celsiusTemperature = Math.round(response.data.main.temp);
   document.querySelector(
     "#current-city"
   ).innerHTML = `${response.data.name}, ${response.data.sys.country}`;
   document.querySelector("#temperature-element").innerHTML = celsiusTemperature;
   document.querySelector("#weather-description").innerHTML =
-    response.data.weather[0].main;
+    response.data.weather[0].description;
   document.querySelector(
     "#humidity"
   ).innerHTML = `${response.data.main.humidity}%`;

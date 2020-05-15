@@ -28,9 +28,13 @@ h1 {
 .temperature {
   font-size: 2.7em;
   font-weight: 700;
+  text-align: right;
 }
-.sunny {
+.weather-app-icon {
   width: 100%;
+}
+.weather-icon {
+  width: 30%;
 }
 .image-size-cover {
   width: 100%;
