@@ -71,12 +71,11 @@ function handlePosition(position) {
 }
 
 function formatWeatherInfo(response) {
+  celsiusTemperature = Math.round(response.data.main.temp);
   document.querySelector(
     "#current-city"
   ).innerHTML = `${response.data.name}, ${response.data.sys.country}`;
-  document.querySelector("#temperature-element").innerHTML = Math.round(
-    response.data.main.temp
-  );
+  document.querySelector("#temperature-element").innerHTML = celsiusTemperature;
   document.querySelector("#weather-description").innerHTML =
     response.data.weather[0].main;
   document.querySelector(
@@ -85,11 +84,38 @@ function formatWeatherInfo(response) {
   document.querySelector(
     "#wind-speed"
   ).innerHTML = `${response.data.wind.speed}m/s`;
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.remove("inactive");
+  fahrenheitLink.classList.add("inactive");
 }
 
 function getPosition() {
   navigator.geolocation.getCurrentPosition(handlePosition);
 }
+
+function changeToFahrenheit(event) {
+  event.preventDefault();
+  document.querySelector("#temperature-element").innerHTML = Math.round(
+    (celsiusTemperature * 9) / 5 + 32
+  );
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.add("inactive");
+  fahrenheitLink.classList.remove("inactive");
+}
+function changeToCelsius(event) {
+  event.preventDefault();
+  document.querySelector("#temperature-element").innerHTML = Math.round(
+    celsiusTemperature
+  );
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.remove("inactive");
+  fahrenheitLink.classList.add("inactive");
+}
+
+let celsiusTemperature = null;
 
 let date = new Date();
 let weekDayHtml = document.querySelector("#week-day");
@@ -112,5 +138,10 @@ londonLink.addEventListener("click", fetchLondon);
 parisLink.addEventListener("click", fetchParis);
 romeLink.addEventListener("click", fetchRome);
 newYorkLink.addEventListener("click", fetchNewYork);
+
+let fahrenheitLink = document.querySelector("#switch-to-fahrenheit");
+fahrenheitLink.addEventListener("click", changeToFahrenheit);
+let celsiusLink = document.querySelector("#switch-to-celsius");
+celsiusLink.addEventListener("click", changeToCelsius);
 
 search("London");

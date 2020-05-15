@@ -71,6 +71,7 @@ h1 {
 }
 .city-link {
   color: #584153;
+  transition: all 0.2s ease-in-out;
 }
 .city-link:hover,
 .city-link:focus {
@@ -79,4 +80,24 @@ h1 {
   padding: 4px 8px;
   border-radius: 8px;
   text-decoration: none;
+}
+
+.active {
+  color: #584153;
+  cursor: default;
+  transition: all 0.2s ease-in-out;
+}
+.inactive {
+  color: #c9a3c3;
+  transition: all 0.2s ease-in-out;
+}
+.active:hover {
+  text-decoration: none;
+}
+.inactive:hover {
+  text-decoration: none;
+  background-color: #edcee8;
+  padding: 2px 4px;
+  border-radius: 8px;
+  color: #584153;
 }
