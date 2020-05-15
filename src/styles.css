@@ -1,0 +1,71 @@
+body {
+  font-family: "Muli", sans-serif;
+  color: #584153;
+  font-weight: 700;
+}
+#button-current-city,
+#button-search-city {
+  border-radius: 50%;
+  background-color: #ad7aa6;
+  border: none;
+  width: 50px;
+  height: 50px;
+  color: #f4f4f4;
+  font-size: 1.2em;
+  transition: all 0.2s ease-in-out;
+}
+
+#button-current-city:hover,
+#button-search-city:hover {
+  background-color: #96648f;
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: 700;
+  color: #584153;
+}
+.temperature {
+  font-size: 2.7em;
+  font-weight: 700;
+}
+.sunny {
+  width: 100%;
+}
+.image-size-cover {
+  width: 100%;
+}
+.forecast,
+.main {
+  /* border: 2px solid #ad7aa6; */
+  border: none;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 700px;
+  background-image: linear-gradient(-225deg, #e3fdf5 0%, #ffe6fa 100%);
+}
+.secondary-info,
+.cities {
+  font-size: 0.9em;
+  text-align: center;
+  font-weight: 700;
+}
+.divider {
+  border-right: 2px solid #ad7aa6;
+}
+.icon {
+  height: 70px;
+}
+.btn-celcius-farenheit {
+  background-color: transparent;
+  border: none;
+  font-weight: 700;
+}
+.forecast-temp {
+  font-size: 0.9em;
+  line-height: 1.2;
+}
+.description {
+  text-transform: capitalize;
+}
