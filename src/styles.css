@@ -69,3 +69,14 @@ h1 {
 .description {
   text-transform: capitalize;
 }
+.city-link {
+  color: #584153;
+}
+.city-link:hover,
+.city-link:focus {
+  color: #584153;
+  background-color: #edcee8;
+  padding: 4px 8px;
+  border-radius: 8px;
+  text-decoration: none;
+}

@@ -27,16 +27,16 @@
         <!-- popular cities -->
         <div class="row cities">
           <div class="col-3 text-center">
-            <a href="#" id="london-link">London</a>
+            <a href="#" class="city-link" id="london-link">London</a>
           </div>
           <div class="col-3 text-center">
-            <a href="#" id="paris-link">Paris</a>
+            <a href="#" class="city-link" id="paris-link">Paris</a>
           </div>
           <div class="col-3 text-center">
-            <a href="#" id="rome-link">Rome</a>
+            <a href="#" class="city-link" id="rome-link">Rome</a>
           </div>
           <div class="col-3 text-center">
-            <a href="#" id="new-york-link">New York</a>
+            <a href="#" class="city-link" id="new-york-link">New York</a>
           </div>
         </div>
 
@@ -64,7 +64,7 @@
                     id="city-input"
                     autocomplete="off"
                     autofocus="on"
-                    placeholder="Enter City"
+                    placeholder="Enter a City"
                   />
                 </div>
                 <div class="col-3 text-center">
@@ -82,9 +82,7 @@
         </div>
 
         <!-- current city -->
-        <h1 class="text-center" id="current-city">
-          Winterfell
-        </h1>
+        <h1 class="text-center" id="current-city"></h1>
 
         <!-- main info -->
         <div class="row justify-content-center mt-4 mb-5">
@@ -95,12 +93,12 @@
           <div class="col-4 d-flex justify-content-center">
             <div class="row">
               <div class="col-6 mr-0">
-                <p class="temperature" id="temperature-element">-20</p>
+                <p class="temperature" id="temperature-element"></p>
               </div>
 
               <div class="col-6 p-0">
-                <a id="switch-to-celcius" href="#">°C</a> |
-                <a id="switch-to-fahrenheit" href="#">°F</a>
+                <a class="unit-link" id="switch-to-celcius" href="#">°C</a> |
+                <a class="unit-link" id="switch-to-fahrenheit" href="#">°F</a>
               </div>
             </div>
           </div>
@@ -115,17 +113,15 @@
           <div
             class="col-3 divider align-items-center d-flex justify-content-center"
           >
-            <div class="text-center description" id="weather-description">
-              Winter is coming
-            </div>
+            <div class="text-center description" id="weather-description"></div>
           </div>
           <div class="col-3 divider">
             Wind Speed
-            <div class="text-center" id="wind-speed">10m/s</div>
+            <div class="text-center" id="wind-speed"></div>
           </div>
           <div class="col-3">
             Humidity
-            <div class="text-center" id="humidity">30%</div>
+            <div class="text-center" id="humidity"></div>
           </div>
         </div>
       </section>
