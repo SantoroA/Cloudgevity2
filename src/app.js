@@ -1,4 +1,5 @@
-function formatWeekDay(now) {
+function formatWeekDay(timestamp) {
+  let date = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -8,21 +9,55 @@ function formatWeekDay(now) {
     "Friday",
     "Saturday",
   ];
-  let weekDay = days[now.getDay()];
+  let weekDay = days[date.getDay()];
+  return weekDay;
+}
+function formaForecastWeekDay(timestamp) {
+  let date = new Date(timestamp);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let weekDay = days[date.getDay()];
   return weekDay;
 }
 
-function formatTime(now) {
-  let currentHour = now.getHours();
+function formatTime(timestamp) {
+  let date = new Date(timestamp);
+  let currentHour = date.getHours();
   if (currentHour < 10) {
     currentHour = `0${currentHour}`;
   }
-  let currentMinute = now.getMinutes();
+  let currentMinute = date.getMinutes();
   if (currentMinute < 10) {
     currentMinute = `0${currentMinute}`;
   }
 
   return `${currentHour}h${currentMinute}min`;
+}
+
+function formatForecast(response) {
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  forecast = null;
+  for (let i = 0; i < 40; i += 8) {
+    forecast = response.data.list[i];
+    forecastElement.innerHTML += `
+      <div class="col-2 forecast-info">
+        <p class="text-center">
+        ${formaForecastWeekDay(forecast.dt * 1000)}  
+        </p>
+        <div class="icon">
+          <img
+            class="image-size-cover"
+            src="images/${forecast.weather[0].main}.svg"
+            alt=""
+          />
+        </div>
+    
+        <p class="text-center mb-0 forecast-temp description">
+          ${Math.round(forecast.main.temp)}°C
+          <br />
+          ${forecast.weather[0].description}
+        </p>`;
+  }
 }
 
 function search(city) {
@@ -31,6 +66,8 @@ function search(city) {
   axios
     .get(`${apiUrl}q=${city}&appid=${apiKey}&units=metric`)
     .then(formatWeatherInfo);
+  let forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(forecastApiUrl).then(formatForecast);
 }
 
 function handleSubmit(event) {
@@ -91,6 +128,13 @@ function formatWeatherInfo(response) {
   fahrenheitLink.classList.remove("active");
   celsiusLink.classList.remove("inactive");
   fahrenheitLink.classList.add("inactive");
+
+  document.querySelector("#time").innerHTML = formatTime(
+    response.data.dt * 1000
+  );
+  document.querySelector("#week-day").innerHTML = formatWeekDay(
+    response.data.dt * 1000
+  );
 }
 
 function getPosition() {
@@ -119,12 +163,6 @@ function changeToCelsius(event) {
 }
 
 let celsiusTemperature = null;
-
-let date = new Date();
-let weekDayHtml = document.querySelector("#week-day");
-let currentTime = document.querySelector("#time");
-currentTime.innerHTML = formatTime(date);
-weekDayHtml.innerHTML = formatWeekDay(date);
 
 let searchCityForm = document.querySelector("#search-city-form");
 searchCityForm.addEventListener("submit", handleSubmit);
