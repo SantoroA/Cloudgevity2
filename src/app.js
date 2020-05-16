@@ -30,7 +30,7 @@ function formatTime(timestamp) {
     currentMinute = `0${currentMinute}`;
   }
 
-  return `${currentHour}h${currentMinute}min`;
+  return `${currentHour}h${currentMinute}m`;
 }
 
 function formatForecast(response) {
