@@ -52,7 +52,7 @@ function formatForecast(response) {
           />
         </div>
     
-        <p class="text-center mb-0 d-block mt-2 forecast-temp description">
+        <p class="text-center mb-0 d-block forecast-temp description">
           ${Math.round(forecast.main.temp)}°C
           <br />
           ${forecast.weather[0].description}
