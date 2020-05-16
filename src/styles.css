@@ -71,6 +71,7 @@ h1 {
 .forecast-temp {
   font-size: 0.9em;
   line-height: 1.2;
+  margin-top: 4px;
 }
 .description {
   text-transform: capitalize;
