@@ -46,13 +46,13 @@ function formatForecast(response) {
         </p>
         <div class="icon">
           <img
-            class="image-size-cover"
+            class="image-size-cover d-block"
             src="images/${forecast.weather[0].main}.svg"
             alt=""
           />
         </div>
     
-        <p class="text-center mb-0 forecast-temp description">
+        <p class="text-center mb-0 d-block mt-2 forecast-temp description">
           ${Math.round(forecast.main.temp)}°C
           <br />
           ${forecast.weather[0].description}
