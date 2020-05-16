@@ -40,19 +40,19 @@ function formatForecast(response) {
   for (let i = 0; i < 40; i += 8) {
     forecast = response.data.list[i];
     forecastElement.innerHTML += `
-      <div class="col-2 forecast-info">
+      <div class="col-4 col-md-2 forecast-info">
         <p class="text-center">
         ${formaForecastWeekDay(forecast.dt * 1000)}  
         </p>
-        <div class="icon">
+        <div class="row">
           <img
-            class="image-size-cover d-block"
+            class="image-size-cover forecast-image d-block"
             src="images/${forecast.weather[0].main}.svg"
             alt=""
           />
         </div>
     
-        <p class="text-center mb-0 d-block forecast-temp description">
+        <p class="row text-center mb-3 d-block forecast-temp description">
           ${Math.round(forecast.main.temp)}°C
           <br />
           ${forecast.weather[0].description}

@@ -50,6 +50,11 @@ h1 {
   max-width: 700px;
   background-image: linear-gradient(-225deg, #e3fdf5 0%, #ffe6fa 100%);
 }
+.forecast-image {
+  width: 75%;
+  margin: 0 auto;
+  display: block;
+}
 .secondary-info,
 .cities,
 .forecast-info {
