@@ -47,8 +47,11 @@ h1 {
   border-radius: 20px;
   padding: 20px;
   margin: 20px auto;
-  max-width: 700px;
+  max-width: 600px;
   background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+.temperature-element {
+  margin: auto;
 }
 .forecast-image {
   width: 75%;
