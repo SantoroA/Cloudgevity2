@@ -48,7 +48,7 @@ function formatForecast(response) {
           <img
             class="image-size-cover forecast-image d-block"
             src="http://openweathermap.org/img/wn/${
-              forecast.weather[0].main
+              forecast.weather[0].icon
             }@2x.png"
             alt=""
           />
