@@ -47,9 +47,7 @@ function formatForecast(response) {
         <div class="row">
           <img
             class="image-size-cover forecast-image d-block"
-            src="http://openweathermap.org/img/wn/${
-              forecast.weather[0].icon
-            }@2x.png"
+            src="images/${forecast.weather[0].main}.svg"
             alt=""
           />
         </div>
@@ -112,10 +110,7 @@ function handlePosition(position) {
 function formatWeatherInfo(response) {
   document
     .querySelector("#weather-icon")
-    .setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
+    .setAttribute("src", `images/${response.data.weather[0].main}.svg`);
   celsiusTemperature = Math.round(response.data.main.temp);
   document.querySelector(
     "#current-city"
